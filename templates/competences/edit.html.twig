@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {{ form_start (add_form)}}
+    <div class="row">
+        <div class="col_12">
+            {{ form_row(add_form.nom) }}
+        </div>
+        <div class="col_12">
+            {{ form_row(add_form.niveau) }}
+        </div>
+        <div class="col_12">
+            {{ form_row(add_form.aime_ou_pas) }}
+        </div>
+
+    </div>
+
+    {{ form_end(add_form) }}
+{% endblock %}

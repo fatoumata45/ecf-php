@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<h1>ajouter un document</h1>
+
+    {{ form(form) }}
+    <table class="table table-striped">
+
+        <thead>
+        <tr>
+            <th> Nom </th>
+            <th>Document</th>
+
+        </tr>
+        <tbody>
+
+        {% for documents in documents %}
+
+            <tr>
+
+                <td>{{documents.nom }}</td>
+                <td> <a class="btn btn-default" href="{{ path("document_delete", {"id": documents.id}) }}">Suprimer</a></td>
+
+            </tr>
+        {% endfor %}
+        </tbody>
+
+        </thead>
+    </table>
+{% endblock %}

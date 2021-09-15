@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<a href="{{ path('app_logout') }}"> logout </a>
+    <table class="table table-striped">
+
+        <thead>
+        <tr>
+            <th> Nom </th>
+            <th>Prenom</th>
+            <th> Telephone</th>
+            <th> Adresse</th>
+            <th> ville</th>
+            <th> code_postal</th>
+
+        </tr>
+        <tbody>
+        {% for singleUser in user %}
+
+            <tr>
+
+                <td>{{singleUser.nom }}</td>
+                <td>{{ singleUser.prenom }}</td>
+                <td>{{ singleUser.telephone }}</td>
+                <td>{{ singleUser.adresse }}</td>
+                <td>{{ singleUser.ville }}</td>
+                <td>{{ singleUser.CodePostal }}</td>
+                <td> <a href="{{ path("edit_admin", {"id": singleUser.id}) }}"> modification</a></td>
+                <td> <a class="btn btn-default" href="{{ path("user_delete", {"id": singleUser.id}) }}">Suprimer</a></td>
+
+            </tr>
+        {% endfor %}
+        </tbody>
+
+        </thead>
+    </table>
+
+    {{ form(add_user) }}
+{% endblock %}

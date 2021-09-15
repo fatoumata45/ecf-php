@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    {{ form(add_form) }}
+    <table class="table table-striped">
+
+        <thead>
+        <tr>
+            <th> Nom </th>
+            <th>Niveau expertise</th>
+            <th> Aime ou aime pas </th>
+        </tr>
+        <tbody>
+
+        {% for competences in competences %}
+
+            <tr>
+
+                <td>{{competences.nom }}</td>
+                <td>{{ competences.niveau }}</td>
+                <td>{{ competences.AimeOuPas }}</td>
+                <td> <a href="{{ path("edit_competences", {"id": competences.id}) }}"> modification</a></td>
+
+            </tr>
+        {% endfor %}
+        </tbody>
+
+        </thead>
+    </table>
+{% endblock %}

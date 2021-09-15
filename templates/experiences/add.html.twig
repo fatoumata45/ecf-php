@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+{{ form_start (add_form)}}
+    <div class="row">
+       <div class="col_12">
+           {{ form_row(add_form.nom_entreprise) }}
+       </div>
+        <div class="col_12">
+            {{ form_row(add_form.date_debut) }}
+        </div>
+        <div class="col_12">
+            {{ form_row(add_form.date_fin) }}
+        </div>
+        <div class="col_12">
+            {{ form_row(add_form.details) }}
+        </div>
+        <div class="col_12">
+            {{ form_row(add_form.competences_utilises) }}
+        </div>
+        <div class="col_12">
+            <div class="button">
+                <button>validate</button>
+            </div>
+        </div>
+    </div>
+
+    {{ form_end(add_form) }}
+
+    <table class="table table-striped">
+
+        <thead>
+        <tr>
+            <th> nom de l'entreprises</th>
+            <th>date du debut</th>
+            <th>date de la fin</th>
+            <th> details </th>
+            <th> competences utilisées </th>
+        </tr>
+        <tbody>
+
+        {% for experiences in expeiences %}
+
+            <tr>
+
+                <td>{{experiences.NomEntreprise }}</td>
+                <td>{{experiences.DateDebut|date("d/m/y") }}</td>
+                <td>{{experiences.DateFin|date("d/m/y") }}</td>
+                <td>{{experiences.details }}</td>
+                <td>{{experiences.CompetencesUtilises }}</td>
+                <td> <a href="{{ path("edit_experiences", {"id": experiences.id}) }}"> modification</a></td>
+
+            </tr>
+        {% endfor %}
+
+        </tbody>
+
+        </thead>
+    </table>
+{% endblock %}

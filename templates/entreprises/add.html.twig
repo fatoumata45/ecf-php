@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    {{ form(add_form) }}
+    <table class="table table-striped">
+
+        <thead>
+        <tr>
+            <th> nom </th>
+            <th>Adresse</th>
+            <th> Telephone </th>
+        </tr>
+        <tbody>
+
+        {% for entreprises in entreprises %}
+
+        <tr>
+
+         <td>{{ entreprises.nom }}</td>
+            <td>{{ entreprises.adresse }}</td>
+            <td>{{ entreprises.telephone }}</td>
+            <td> <a href="{{ path("edit_entreprises", {"id": entreprises.id}) }}"> modification</a></td>
+
+        </tr>
+        {% endfor %}
+        </tbody>
+
+        </thead>
+    </table>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+{{ form_start (add_form)}}
+<div class="row">
+    <div class="col_12">
+        {{ form_row(add_form.nom_entreprise) }}
+    </div>
+    <div class="col_12">
+        {{ form_row(add_form.date_debut) }}
+    </div>
+    <div class="col_12">
+        {{ form_row(add_form.date_fin) }}
+    </div>
+    <div class="col_12">
+        {{ form_row(add_form.details) }}
+    </div>
+    <div class="col_12">
+        {{ form_row(add_form.competences_utilises) }}
+    </div>
+    <div class="col_12">
+        <div class="button">
+            <button>valider</button>
+        </div>
+    </div>
+</div>
+
+{{ form_end(add_form) }}
+{% endblock %}
